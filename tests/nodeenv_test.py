@@ -87,6 +87,7 @@ def test_print_node_versions(cap_logging_info):
     assert tabs_per_line == [7] * 60 + [4]
 
 
+@pytest.mark.skipif(sys.platform == 'win32', reason='function does not throw on Windows')
 def test_predeactivate_hook(tmpdir):
     # Throw error if the environment directory is not a string
     with pytest.raises((TypeError, AttributeError)):
